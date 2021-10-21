@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+<link rel="stylesheet" href="../../../static/css/main.css">
+
+    
+
+{% block content %}
+<body id="sign-upform">
+<h1 id="sign-text1">Sign Up Here</h1>
+<main class="container" id="sign">
+    <div class="row">
+        
+        <div class="col-md-12" >
+            <h2 id="sign-text2">Create your FREE Account</h2>
+            <form method="POST">
+                {{form.hidden_tag()}}
+                <div class="form-group">
+                    <fieldset id="email-field">
+                        {{ form.email.label}}
+                        {{form.email(class="form-control", placeholder = "Place Email Here...")}}
+                    </fieldset>
+                    <fieldset id="email-field">
+                        {{ form.password.label}}
+                        {{form.password(class="form-control", placeholder = "Place Password Here...")}}
+                    </fieldset>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" required>
+                        <label class="form-check-label"id="invalidCheck" >I confirm that all data are correct</label>
+                        <div class="invalid-feedback">Please confirm that the entered data are all correct!</div>
+                    </div>
+                    <!-- Submit button form flask form -->
+                    {{form.submit_button(class = "btn btn_primary btn-block" )}}
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+
+
+
+</body>
+{% endblock content %}

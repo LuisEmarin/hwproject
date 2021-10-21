@@ -1,0 +1,56 @@
+.ct-nav{
+    display: flex;
+    justify-content: center;
+}
+
+.ct-nav img{
+    width: 25%;
+    max-width: 100%;
+    margin-left: 2vw;
+}
+
+#horizontal-list{
+    min-width: 55vw;
+    list-style: none;
+    padding-top: 6vh;
+}
+
+#horizontal-list li, #horizontal-list a{
+    display: inline;
+    text-decoration: none;
+    padding: 0.5vw;
+    color: black;
+}
+
+#horizontal-list a:nth-last-child(1){
+    border: 2px solid blue;
+    border-radius: 10px;
+    margin-right: 0.2vw;
+}
+
+#logo{
+    border-radius: 45%;
+}
+
+#sign-upform{
+    background-color: #152733;
+}
+#sign-text1{
+    color: white;
+
+}
+
+#sign-text2{
+    color: white;
+}
+
+#invalidCheck{
+    color: white;
+}
+
+#signup_submit{
+    color: white;
+}
+.btn{
+    color: white;
+}
