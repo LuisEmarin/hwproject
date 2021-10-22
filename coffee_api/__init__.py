@@ -4,7 +4,8 @@ from .authentication.routes import auth
 from .site.routes import site
 from .api.routes import api
 from flask_migrate import Migrate, migrate
-from .models import db, login_manager
+from .models import db, login_manager, ma 
+from flask import CORS
 
 
 
@@ -19,3 +20,5 @@ db.init_app(app)
 login_manager.init_app(app)
 login_manager.login_view = 'auth.signin'
 migrate = Migrate(app,db)
+ma.init_app(app)
+CORS(app)
