@@ -1,6 +1,6 @@
+from os import name
 from enum import unique
 from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
 from datetime import datetime
 import uuid
 from sqlalchemy.orm import backref
@@ -8,6 +8,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import secrets
 from flask_login import LoginManager, UserMixin, login_manager
 from flask_marshmallow import Marshmallow
+from flask_migrate import Migrate
 
 db = SQLAlchemy()
 
@@ -24,6 +25,8 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String, nullable = False)
     token = db.Column(db.String, unique = True)
     date_created = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
+    flight = db.relationship('Flight', backref= 'owner', lazy = True)
+
 
     def __init__(self,email, password,token= '', id='') -> None:
         self.id = self.set_id()

@@ -5,7 +5,7 @@ from .site.routes import site
 from .api.routes import api
 from flask_migrate import Migrate, migrate
 from .models import db, login_manager, ma 
-from flask import CORS
+from flask_cors import CORS
 
 
 

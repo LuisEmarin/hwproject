@@ -1,3 +1,4 @@
+from os import name
 from flask import Blueprint, request, jsonify
 from coffee_api.models import Flight, db, flight_schema, flights_schema
 from coffee_api.helpers import token_required
@@ -7,7 +8,8 @@ api = Blueprint('api', __name__, url_prefix='/api')
 @api.route('/getdata')
 def getdata():
     return {'some_value': 52, 'another_value': 'Coding Temple'}
-@api.route('/drones', methods=['POST'])
+
+@api.route('/flights', methods=['POST'])
 @token_required
 def create_flight(current_user_token):
     departsin_landsin = request.json['departsin_landsin']
@@ -77,7 +79,7 @@ def delete_flight(current_user_token, id):
     if flight:
         db.session.delete(flight)
         db.session.commit()
-        return jsonify({'Success': f'Drone ID #{flight.id} has been deleted'})
+        return jsonify({'Success': f'Flight ID #{flight.id} has been deleted'})
     else:
         return jsonify({'Error': 'That flight does not exist!'})
 
